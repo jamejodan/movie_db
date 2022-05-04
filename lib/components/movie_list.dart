@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:movie_db/models/movie.dart';
 import 'package:movie_db/network/api.dart';
 import 'package:movie_db/pages/detail_page.dart';
@@ -27,7 +28,7 @@ class _MovielistState extends State<Movielist> {
             padding: const EdgeInsets.only(top: 20, left: 10, right: 10),
             child: Text(
               widget.title,
-              style: const TextStyle(fontSize: 18),
+              style: const TextStyle(fontSize: 18, color: Colors.white),
             ),
           ),
           const SizedBox(
@@ -43,13 +44,10 @@ class _MovielistState extends State<Movielist> {
                 Movie m = widget.list[index];
                 return InkWell(
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => DetailPage(
-                          movie: m,
-                          extra: widget.extra,
-                        ),
+                    Get.to(
+                      () => DetailPage(
+                        movie: m,
+                        extra: widget.extra,
                       ),
                     );
                   },
