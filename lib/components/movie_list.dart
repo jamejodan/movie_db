@@ -28,7 +28,7 @@ class _MovielistState extends State<Movielist> {
             padding: const EdgeInsets.only(top: 20, left: 10, right: 10),
             child: Text(
               widget.title,
-              style: const TextStyle(fontSize: 18, color: Colors.white),
+              style: const TextStyle(fontSize: 18, color: Colors.black),
             ),
           ),
           const SizedBox(

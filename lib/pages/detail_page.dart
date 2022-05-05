@@ -32,26 +32,35 @@ class _DetailPageState extends State<DetailPage> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(child: Scaffold(body: Obx(() {
-      return Stack(children: [
-        Container(
-          width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height,
-          decoration: BoxDecoration(
-            image: DecorationImage(
-                image: NetworkImage(API.imageURL + widget.movie.backdropPath),
-                fit: BoxFit.cover),
-          ),
-          child: BackdropFilter(
-            filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
-            child: Container(
-              decoration: BoxDecoration(color: Colors.black.withOpacity(0.5)),
+    return SafeArea(
+        child: Scaffold(
+            appBar: AppBar(
+              title: const Text('Detail Page'),
             ),
-          ),
-        ),
-        Positioned(top: 0, left: 0, child: detailHeader()),
-      ]);
-    })));
+            body: SingleChildScrollView(
+              child: Obx(() {
+                return Stack(children: [
+                  Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: MediaQuery.of(context).size.height,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image: NetworkImage(
+                              API.imageURL + widget.movie.backdropPath),
+                          fit: BoxFit.cover),
+                    ),
+                    child: BackdropFilter(
+                      filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+                      child: Container(
+                        decoration:
+                            BoxDecoration(color: Colors.black.withOpacity(0.5)),
+                      ),
+                    ),
+                  ),
+                  Positioned(top: 0, left: 0, child: detailHeader()),
+                ]);
+              }),
+            )));
   }
 
   Widget detailHeader() {

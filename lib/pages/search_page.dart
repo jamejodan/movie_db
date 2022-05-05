@@ -1,9 +1,11 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:movie_db/components/search_list.dart';
 import 'package:movie_db/models/movie.dart';
 import 'package:movie_db/network/api.dart';
+import 'package:movie_db/pages/detail_page.dart';
 
 class SearchPage extends StatefulWidget {
   const SearchPage({Key? key}) : super(key: key);
